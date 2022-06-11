@@ -10,9 +10,11 @@ ip = IPv4Address(f'{D_IP}')  # whatever server's address is
 session = AirmoreSession(ip)  # port is default to 2333
 service = DeviceService(session) #starts a session
 Mservice = MessagingService(session)
+numbers=['','']
 
 if session.request_authorization():
-    Mservice.send_message("Number", "testing")
+    for number in numbers:
+        Mservice.send_message(number, "testing")
 
 else:
     print('Nah')
